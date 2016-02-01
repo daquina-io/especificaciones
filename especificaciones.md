@@ -27,3 +27,42 @@ El desarrollo, promoción y adopción de esta especificación esta orientada a b
 * Habilitar a terceros toda clase de acceso y uso de información precisa para crear aplicaciones que sirvan al interés público, y promuevan
 * Proveer una alternativa de análisis a las estadísticas de popularidad en las redes sociales.
 * Ayudar a mejorar las decisiones de los agentes culturales.
+
+#### Mirada inical a las especificaciones
+
+Para el propósito de esta especificación "Aparicion" es definida como un acto público de una propuesta cultural, "AparicionesAbiertas" entrega datos relacionados con el territorio, capacidad de asistentes, fecha etc.
+
+* ***date*** _Requerido_ Usamos el formato AAAA-MM-DD HH:MM:SS para contemplar la posibilidad en la que un proyecto cultural se presente mas de una vez en el mismo día.
+* ***venue*** _Requerido_ Usamos el nombre del sitio del evento, la combinación de ese nombre con la ciudad nos debe permitir identificar el sitio de la presentación.
+* ***capacity*** Se describe como la cantidad de personas que caben en el sitio del evento (venue), se debe esribir como un número entero.
+* ***occupation*** _Opcional_ Este valor se pone en la forma de un numero entero que representa un porcentaje, no puede ser mayor a cien, tampoco negativo, 100 quiere decir que el sitio estaba lleno, 90 casi lleno, 50 a la mitad, 10 muy poca gente.
+* ***city*** _Requerido_
+* ***coordinates*** _Requerido_ Hacen parte de la localización en el territorio que hace geoJson.
+
+Ejemplo:
+
+```json
+{
+  "type": "Feature",
+  "properties":
+  {
+    "venue": "Parque Simon Bolivar",
+    "event": "Rock al Parque 1997",
+    "date": "1997-05-30 22:00:00",
+    "capacity": 30000,
+    "occupation": 100,
+    "lineup":"grupos que participaron separados por coma",
+    "founder": "Opcional: Quien puso el dinero",
+    "headliner": "todos_tus_muertos",
+    "city": "bogota"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+        -74.09070253372192,
+      4.660346097326611
+    ]
+  }
+}
+
+  ```
