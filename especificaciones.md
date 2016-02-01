@@ -1,3 +1,8 @@
+This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+
 # Especificaciones del Sistema Abierto de Apariciones en el Territorio (Apariciones Abiertas) v.01
 copiado y adaptado de https://docs.google.com/document/d/1KF8KAio-SqGHhh9oFY_KjfwIi3PePOHg7KfTSPh27fc/edit
 
