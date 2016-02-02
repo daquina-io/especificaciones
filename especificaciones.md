@@ -39,6 +39,8 @@ Para el propósito de esta especificación "Aparicion" es definida como un acto 
 
 * ***date*** _Requerido_ Usamos el formato AAAA-MM-DD HH:MM:SS para contemplar la posibilidad en la que un proyecto cultural se presente mas de una vez en el mismo día.
 * ***venue*** _Requerido_ Usamos el nombre del sitio del evento, la combinación de ese nombre con la ciudad nos debe permitir identificar el sitio de la presentación.
+* ***event*** _Opcional_ El nombre del evento, o la ocasión que motiva el evento.
+* ***event_genre*** _Opcional_ Los generos musicales que se escucharon en el evento, separados por comas, en minusculas, palabras separadas por guión bajo.
 * ***capacity*** Se describe como la cantidad de personas que caben en el sitio del evento (venue), se debe esribir como un número entero.
 * ***occupation*** _Opcional_ Este valor se pone en la forma de un numero entero que representa un porcentaje, no puede ser mayor a cien, tampoco negativo, 100 quiere decir que el sitio estaba lleno, 90 casi lleno, 50 a la mitad, 10 muy poca gente.
 * ***city*** _Requerido_
@@ -57,8 +59,9 @@ Ejemplo:
     "capacity": 30000,
     "occupation": 100,
     "lineup":"grupos que participaron separados por coma",
-    "founder": "Opcional: Quien puso el dinero",
+    "event_genre ":"metal, black_metal, punk, reggae",
     "headliner": "todos_tus_muertos",
+    "founder": "Opcional: Quien puso el dinero",
     "city": "bogota"
   },
   "geometry": {
