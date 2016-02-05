@@ -37,14 +37,14 @@ El desarrollo, promoción y adopción de esta especificación esta orientada a b
 
 Para el propósito de esta especificación "Aparicion" es definida como un acto público de una propuesta cultural, "AparicionesAbiertas" entrega datos relacionados con el territorio, capacidad de asistentes, fecha etc.
 
-* ***date*** _Requerido_ Usamos el formato AAAA-MM-DD HH:MM:SS para contemplar la posibilidad en la que un proyecto cultural se presente mas de una vez en el mismo día.
-* ***venue*** _Requerido_ Usamos el nombre del sitio del evento, la combinación de ese nombre con la ciudad nos debe permitir identificar el sitio de la presentación.
-* ***event*** _Opcional_ El nombre del evento, o la ocasión que motiva el evento.
-* ***event_genre*** _Opcional_ Los generos musicales que se escucharon en el evento, separados por comas, en minusculas, palabras separadas por guión bajo.
-* ***capacity*** Se describe como la cantidad de personas que caben en el sitio del evento (venue), se debe esribir como un número entero.
-* ***occupation*** _Opcional_ Este valor se pone en la forma de un numero entero que representa un porcentaje, no puede ser mayor a cien, tampoco negativo, 100 quiere decir que el sitio estaba lleno, 90 casi lleno, 50 a la mitad, 10 muy poca gente.
-* ***city*** _Requerido_
-* ***coordinates*** _Requerido_ Hacen parte de la localización en el territorio que hace geoJson.
+* ***date*** ```Requerido``` Usamos el formato AAAA-MM-DD HH:MM:SS para contemplar la posibilidad en la que un proyecto cultural se presente mas de una vez en el mismo día.
+* ***venue*** ```Requerido``` Usamos el nombre del sitio del evento, la combinación de ese nombre con la ciudad nos debe permitir identificar el sitio de la presentación.
+* ***event*** ```Opcional``` El nombre del evento, o la ocasión que motiva el evento.
+* ***event_genres*** ```Opcional``` Los generos musicales que se escucharon en el evento, separados por comas, en minusculas, palabras separadas por guión bajo.
+* ***capacity*** ```Opcional``` Se describe como la cantidad de personas que caben en el sitio del evento (venue), se debe esribir como un número entero.
+* ***occupation*** ```Opcional``` Este valor se pone en la forma de un numero entero que representa un porcentaje, no puede ser mayor a cien, tampoco negativo, 100 quiere decir que el sitio estaba lleno, 90 casi lleno, 50 a la mitad, 10 muy poca gente.
+* ***city*** ```Requerido```
+* ***coordinates*** ```Requerido``` Hacen parte de la localización en el territorio que hace geoJson.
 
 #### Ejemplo:
 
