@@ -46,23 +46,22 @@ Para el propósito de esta especificación "Aparicion" es definida como un acto 
 * ***city*** _Requerido_
 * ***coordinates*** _Requerido_ Hacen parte de la localización en el territorio que hace geoJson.
 
-Ejemplo:
+#### Ejemplo:
 
 ```json
 {
   "type": "Feature",
   "properties":
   {
-    "venue": "Parque Simon Bolivar",
-    "event": "Rock al Parque 1997",
-    "date": "1997-05-30 22:00:00",
-    "capacity": 30000,
-    "occupation": 100,
-    "lineup":"grupos que participaron separados por coma",
-    "event_genre ":"metal, black_metal, punk, reggae",
-    "headliner": "todos_tus_muertos",
-    "founder": "Opcional: Quien puso el dinero",
-    "city": "bogota"
+    "venue": "",
+    "event": "",
+    "date": "",
+    "capacity": "",
+    "occupation": "",
+    "event_genres":"",
+    "lineup":"",
+    "headliner": "",
+    "city": ""
   },
   "geometry": {
     "type": "Point",
