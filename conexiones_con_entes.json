@@ -1,0 +1,29 @@
+{
+  "marta_casa_teatro": {
+    "emite": {
+      "datos": [
+        "listado de apariciones en casa teatro 2013-2016",
+        "mapa de actores culturales medellin"
+      ],
+      "documentos": [
+        "documento sistematización final casas de la cultura",
+        "documento rompiendo el círculo vicioso"
+      ],
+      "experiencia": [
+        "paz",
+        "cultura",
+        "gestión"
+      ]
+    },
+    "recibe": {
+      "datos": {
+        "experiencia": [
+          "sistemas de documentación abieta",
+          "sistemas de cartografía abierta",
+          "sistema de interconexión cultural ",
+          "sistemas para conectar sus logros (trabajos terminados ) con los principios de otros."
+        ]
+      }
+    }
+  }
+}
