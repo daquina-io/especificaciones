@@ -1,0 +1,14 @@
+{
+  "name": "schema_validator",
+  "version": "0.0.1",
+  "description": "Validador de geojson's de apariciones de grupos que permitirá determinar si los datos cumples con las características que estamos graficando y no romper la aplicación de shiny",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "JSV": "^4.0.2"
+  }
+}
