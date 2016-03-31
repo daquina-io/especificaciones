@@ -1,3 +1,4 @@
+// Definido de acuerdo a esta información http://stackoverflow.com/questions/17931874/setting-required-on-a-json-schema-array
 module.exports =  {
   type : "object",
   properties : {
@@ -7,9 +8,9 @@ module.exports =  {
       "enum":["FeatureCollection"]
     },
     "features" : {
-      type : "array",
+      type : "object",
       required : true,
-      items : [ { type : "object", required : true, properties : {
+      items : { type : "array", required : true, properties : {
         "type" : { type : "string", required : true, "enum":["Feature"]},
         "properties" : {
           type : "object", properties : {
@@ -29,7 +30,6 @@ module.exports =  {
           "coordinates" : { type : "array",
                             items : [{type : "number"}, {type : "number"}]}
         }}}}
-              ]
      }
   }
 }
