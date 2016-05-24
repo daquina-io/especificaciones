@@ -1,5 +1,5 @@
 var JSV = require("JSV").JSV;
-var json = require("./el_suiche_geojson.js");
+var json = require("./fonseca_geojson.js");
 var schema = require("./apariciones_schema.js")
 //{"type" : "object"};
 var env = JSV.createEnvironment();
