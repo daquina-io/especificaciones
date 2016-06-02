@@ -17,6 +17,8 @@ direccion <- "https://raw.githubusercontent.com/son0p/dataSet_grupos_casa_teatro
 url_direccion<- getURL(direccion) ## Se trae la página inidcada en direccion en el formato csv
 data <- read.csv(text = url_direccion) ## Se lee el csv obtenido de internet y se convierte en tabla para guardarlo en data
 
+
+data <- grupos
 ## El dato de la coordenada viene en el campo geometry pero viene en formato xml dentro de Point > coordinates, se usa el siguiente patrón de expresión regular para quitar lo que sobra y dejar solo latitud y longitud al extraérselo como texto
 pattern <- "-.[0-9].[0-9]+,[0-9].[0-9]+"
 data$geometry <- str_extract(data$geometry, pattern)
@@ -27,24 +29,37 @@ plantilla <-  '{
   "type": "Feature",
   "properties":
   {
-    "venue": "",
-    "event": "",
-    "date": "",
-    "capacity": 0,
-    "occupation": 0,
-    "event_genres":"",
-    "lineup":"",
-    "headliner": "",
-    "city": ""
+    "venue": _venue,
+    "event": _event,
+    "date": _date,
+    "capacity": _capacity,
+    "occupation": _occupation,
+    "event_genres": _event_genres,
+    "lineup": _lineup,
+    "headliner": _headliner,
+    "city": _city
   },
   "geometry": {
     "type": "Point",
-    "coordinates": coordenada
+    "coordinates": _coordinates
   }
 }'
 
+columnas_plantilla <- c("venue","event","date","capacity","occupation","event_genres","lineup","headliner","city","coordinates")
+
 plantilla <- str_replace(plantilla,"nombre",data$name) # Se reemplaza el nombre en la plantilla
 plantilla <- str_replace(plantilla,"coordenada",data$geometry) # Se reemplaza la coordenada en la plantilla
+
+
+plantilla <- str_replace(plantilla,"coordenada",grupos$venue) # Se reemplaza la coordenada en la plantilla
+i <- "venue"
+
+colnames(grupos)
+
+for (i in columnas_plantilla) {
+  print(i)
+  plantilla <- str_replace(plantilla,i,eval(parse(text = paste0("grupos$",i))))
+}
 
 ## Función para normalizar los nombres de las agrupaciones de modo que no tengan caracteres raros y los espacios sean reemplazados por guión bajo
 normalizarNombre <- function(nombre) {
