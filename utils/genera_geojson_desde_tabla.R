@@ -12,6 +12,8 @@ rm(list=ls())
 require(RCurl) ## paquete interfaz para curl
 require(stringr) ## paquete para manipulación de strings
 require(stringi) ## paquete para manipulación de strings
+require(dplyr)
+require(googlesheets)
 
 direccion <- "https://raw.githubusercontent.com/son0p/dataSet_grupos_casa_teatro/master/data/Artistas_casa_teatro_filtrado.csv"
 url_direccion<- getURL(direccion) ## Se trae la página inidcada en direccion en el formato csv
@@ -45,21 +47,10 @@ plantilla <-  '{
   }
 }'
 
-columnas_plantilla <- c("venue","event","date","capacity","occupation","event_genres","lineup","headliner","city","coordinates")
 
 plantilla <- str_replace(plantilla,"nombre",data$name) # Se reemplaza el nombre en la plantilla
 plantilla <- str_replace(plantilla,"coordenada",data$geometry) # Se reemplaza la coordenada en la plantilla
 
-
-plantilla <- str_replace(plantilla,"coordenada",grupos$venue) # Se reemplaza la coordenada en la plantilla
-i <- "venue"
-
-colnames(grupos)
-
-for (i in columnas_plantilla) {
-  print(i)
-  plantilla <- str_replace(plantilla,i,eval(parse(text = paste0("grupos$",i))))
-}
 
 ## Función para normalizar los nombres de las agrupaciones de modo que no tengan caracteres raros y los espacios sean reemplazados por guión bajo
 normalizarNombre <- function(nombre) {
@@ -71,10 +62,37 @@ normalizarNombre <- function(nombre) {
     nombre
 }
 
+## se ajusta el working directory para que se generen los datos en el lugar adecuado
+setwd("../../apariciones_proyectos_musicales")
+
 ## Se recorren todas las plantillas, se normaliza el nombre y se guardan en el sistema con el nombre de la agrupación más la extensión .geojson
 for(i in 1:length(plantilla)) {
-    nombre <- normalizarNombre(data$name[i])
-    cat(plantilla[i], file = paste0("mapasGrupos/",nombre,".geojson"))
+    nombre <- normalizarNombre(grupos$headliner[i])
+    cat(plantilla[i], file = paste0(nombre,".geojson"))
 }
 
 ## Para poder editar con geojson.io mirar con detenimiento https://github.com/JasonSanford/gitspatial para hacer consultas sobre esos datos
+
+#############
+gs_auth()
+gs_ls("Programacion Casateatro El Poblado")
+hoja_grupos <- gs_title("Programacion Casateatro El Poblado")
+grupos <- hoja_grupos %>% gs_read(ws = "integrados_solo_grupos_musicales")
+
+columnas_plantilla <- c("venue","event","date","capacity","occupation","event_genres","lineup","headliner","city","coordinates")
+
+colnames(grupos)
+
+## El error viene de los NA que se generan al cargar campos vacíos. Principalmente en la columna event_genres
+## Se reemplazan los NAs 
+grupos$event_genres[which(is.na(grupos$event_genres))] <- ""
+grupos$occupation[which(is.na(grupos$occupation))] <- ""
+
+for (i in columnas_plantilla) {
+  print(i)
+  plantilla <- str_replace(plantilla,paste0("_",i),paste0("\"",eval(parse(text = paste0("grupos$",i))),"\""))
+}
+
+is.na(grupos[,columnas_plantilla]) ## Buscar el documento de tantas realidades ¿cómo pasar de índices en una dimensión a filas y columnas?
+
+## Luego se corre el for de la línea 66 para crear los archivos
