@@ -43,7 +43,7 @@ plantilla <-  '{
   },
   "geometry": {
     "type": "Point",
-    "coordinates": _coordinates
+    "coordinates": [_coordinates]
   }
 }'
 
@@ -90,7 +90,7 @@ grupos$occupation[which(is.na(grupos$occupation))] <- ""
 
 for (i in columnas_plantilla) {
   print(i)
-  plantilla <- str_replace(plantilla,paste0("_",i),paste0("\"",eval(parse(text = paste0("grupos$",i))),"\""))
+  ifelse(i == "coordinates",  plantilla <- str_replace(plantilla,paste0("_",i),eval(parse(text = paste0("grupos$",i)))),   plantilla <- str_replace(plantilla,paste0("_",i),paste0("\"",eval(parse(text = paste0("grupos$",i))),"\"")))
 }
 
 is.na(grupos[,columnas_plantilla]) ## Buscar el documento de tantas realidades ¿cómo pasar de índices en una dimensión a filas y columnas?
