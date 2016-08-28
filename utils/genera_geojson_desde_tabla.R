@@ -65,19 +65,19 @@ normalizarNombre <- function(nombre) {
 ## se ajusta el working directory para que se generen los datos en el lugar adecuado
 setwd("../../apariciones_proyectos_musicales")
 
-## Se recorren todas las plantillas, se normaliza el nombre y se guardan en el sistema con el nombre de la agrupación más la extensión .geojson
+## Se recorren todas las plantillas, se normaliza el nombre y se guardan en el sistema con el nombre de la agrupación más la extensión .geojson ## se agrega el numero de iteración al nombre, para prevenir que se sobreescriba un grupo que tiene dos o mas apariciones ## TODO: encontrar una mejor manera de integrar múltiples apariciones de el mismo grupo
 for(i in 1:length(plantilla)) {
     nombre <- normalizarNombre(grupos$headliner[i])
-    cat(plantilla[i], file = paste0(nombre,".geojson"))
+    cat(plantilla[i], file = paste0(nombre,i,".geojson"))
 }
 
 ## Para poder editar con geojson.io mirar con detenimiento https://github.com/JasonSanford/gitspatial para hacer consultas sobre esos datos
 
 #############
 gs_auth()
-gs_ls("Programacion Casateatro El Poblado")
-hoja_grupos <- gs_title("Programacion Casateatro El Poblado")
-grupos <- hoja_grupos %>% gs_read(ws = "integrados_solo_grupos_musicales")
+gs_ls("Apariciones (en bloque)")
+hoja_grupos <- gs_title("Apariciones (en bloque)")
+grupos <- hoja_grupos %>% gs_read(ws = "Para ingresar (Elvis)")
 
 columnas_plantilla <- c("venue","event","date","capacity","occupation","event_genres","lineup","headliner","city","coordinates")
 
@@ -95,4 +95,4 @@ for (i in columnas_plantilla) {
 
 is.na(grupos[,columnas_plantilla]) ## Buscar el documento de tantas realidades ¿cómo pasar de índices en una dimensión a filas y columnas?
 
-## Luego se corre el for de la línea 66 para crear los archivos
+## Luego se corre el for de la línea 66 para crear los archivos. TODO: encontrar la manera de integrar dos geojson para los casos en que el grupo ya exista.
