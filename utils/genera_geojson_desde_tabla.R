@@ -77,25 +77,86 @@ setwd("../../apariciones_proyectos_musicales")
 
 ## Para poder editar con geojson.io mirar con detenimiento https://github.com/JasonSanford/gitspatial para hacer consultas sobre esos datos
 
+########################################################################################################
+########################################################################################################
 ############# Crear geoJson a partir de hoja de google sheets
+require(RCurl) ## paquete interfaz para curl
+require(stringr) ## paquete para manipulación de strings
+require(stringi) ## paquete para manipulación de strings
+require(dplyr)
+require(googlesheets)
+
 gs_auth()
 gs_ls("Apariciones (en bloque)")
 hoja_grupos <- gs_title("Apariciones (en bloque)")
 grupos <- hoja_grupos %>% gs_read(ws = "Para ingresar (Elvis)")
 
-columnas_plantilla <- c("venue","event","date","capacity","occupation","event_genres","lineup","headliner","city","coordinates")
-
-colnames(grupos)
+columnas_plantilla <- colnames(grupos)
 
 ## El error viene de los NA que se generan al cargar campos vacíos. Principalmente en la columna event_genres
 ## Se reemplazan los NAs 
 grupos$event_genres[which(is.na(grupos$event_genres))] <- ""
 grupos$occupation[which(is.na(grupos$occupation))] <- ""
 
+plantilla <-  '{
+  "type": "Feature",
+  "properties":
+  {
+    "venue": _venue,
+    "event": _event,
+    "date": _date,
+    "capacity": _capacity,
+    "occupation": _occupation,
+    "event_genres": _event_genres,
+    "lineup": _lineup,
+    "headliner": _headliner,
+    "city": _city
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [_coordinates]
+  }
+}'
+
 for (i in columnas_plantilla) {
   print(i)
   ifelse(i == "coordinates",  plantilla <- str_replace(plantilla,paste0("_",i),eval(parse(text = paste0("grupos$",i)))),   plantilla <- str_replace(plantilla,paste0("_",i),paste0("\"",eval(parse(text = paste0("grupos$",i))),"\"")))
 }
+
+plantilla <- data.frame(plantilla, grupos$headliner)
+colnames(plantilla) <- c("plantilla","nombre")
+
+grupos_unicos <- unique(plantilla$nombre)
+
+plantilla_list <- lapply(grupos_unicos, function(aparicion) { 
+  plantilla %>% filter(nombre == aparicion) 
+})
+
+## Se recorren todas las plantillas, se normaliza el nombre y se guardan en el sistema con el nombre de la agrupación más la extensión .geojson ## se agrega el numero de iteración al nombre, para prevenir que se sobreescriba un grupo que tiene dos o mas apariciones ## TODO: encontrar una mejor manera de integrar múltiples apariciones de el mismo grupo
+## brolin? puedo volver esto una función?
+for(i in 1:length(plantilla_list)) {
+  nombre <- normalizarNombre(grupos$headliner[i])
+  cat(plantilla[i], file = paste0(nombre,".geojson"))
+}
+
+header <- '{
+  "type": "FeatureCollection",
+  "features": ['
+
+footer <- ']
+}'
+
+lapply(plantilla_list, function(grupo) {
+  nombre <- unique(grupo[[2]])
+  mapa <- paste0(grupo[[1]][1:length(grupo[[1]])], collapse = ",")
+  cat(paste0(header,mapa,footer), file = paste0(nombre,".geojson"))
+})
+
+getwd()
+
+names(plantilla)
+
+
 
 ## funciones
 crearPlantilla
