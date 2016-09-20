@@ -134,11 +134,6 @@ plantilla_list <- lapply(grupos_unicos, function(aparicion) {
 
 ## Se recorren todas las plantillas, se normaliza el nombre y se guardan en el sistema con el nombre de la agrupación más la extensión .geojson ## se agrega el numero de iteración al nombre, para prevenir que se sobreescriba un grupo que tiene dos o mas apariciones ## TODO: encontrar una mejor manera de integrar múltiples apariciones de el mismo grupo
 ## brolin? puedo volver esto una función?
-for(i in 1:length(plantilla_list)) {
-  nombre <- normalizarNombre(grupos$headliner[i])
-  cat(plantilla[i], file = paste0(nombre,".geojson"))
-}
-
 header <- '{
   "type": "FeatureCollection",
   "features": ['
