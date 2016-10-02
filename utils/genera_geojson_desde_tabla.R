@@ -170,9 +170,13 @@ row <- c(grupos)
 lineups <- grupos$lineup 
 ## 
 s <-  c(lineups[69])
-split <- c(strsplit(lineups[69],","))[[1]]
+split <- c(strsplit(lineups,","))
 ed <- c(split)
 
-lapply(row, function(grupos){
-  ## lo que debe hacer con los grupos 
-  }
+## un lapply recorre todo split, otro anidado recorre cada split
+lapply(split, function(x){
+  row <- paste0(x, " foo")
+  lapply(row, function(x){paste0(row[[1]], toupper(x))})
+  })
+
+paste0(split, "xx")
