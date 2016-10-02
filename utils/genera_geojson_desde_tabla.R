@@ -163,4 +163,16 @@ crearArchivos
 ## brolin?
 is.na(grupos[,columnas_plantilla]) ## Buscar el documento de tantas realidades ¿cómo pasar de índices en una dimensión a filas y columnas?
 
-## Luego se corre el for de la línea 66 para crear los archivos. TODO: encontrar la manera de integrar dos geojson para los casos en que el grupo ya exista.
+
+######################
+################### intento extraer los grupos del campo lineup
+row <- c(grupos)
+lineups <- grupos$lineup 
+## 
+s <-  c(lineups[69])
+split <- c(strsplit(lineups[69],","))[[1]]
+ed <- c(split)
+
+lapply(row, function(grupos){
+  ## lo que debe hacer con los grupos 
+  }
