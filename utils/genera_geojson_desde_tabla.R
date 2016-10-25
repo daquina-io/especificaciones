@@ -158,9 +158,38 @@ crearPlantilla
 normalizarNombre
 crearArchivos
 
+############################################################################################
+############ PARTIR LINEUP PARA REPLICAR REGISTROS ##########################
+############################################################################################
+
+## Se parte el string lineup por comas y se guarda en una list (lista porque este es el resultado de str_split)
+split_lineup <- str_split(grupos$lineup,",")
+
+## usando lapply obtenemos la longitud cada uno de los elementos de la lista, es decir la cantidad de palabras partidas
+## que luego usaremos para saber cuantas veces tenemos que repetir los datos por cada registro
+length_split <- lapply(split_lineup, function(x) {
+  length(x)
+})
+length_split <- unlist(length_split) ## lo convertimos en un vector plano
+
+split_lineup <- unlist(split_lineup) ## ya que tenemos la longitud de cada registro aplanamos la lista que proviene de partir lineup
+
+grupos_replicados <- list()
+## Se recorre todos los grupos y se crea una lista donde se almacena la repetición de cada registro según la cantidad de grupos partidos según el lineup
+for(i in 1:length(length_split)) {
+  grupos_replicados[[i]] <- replicate(length_split[i],grupos[i,])
+}
+
+## El proceso anterior genera una lista que se aplana a continuación, para generar un data.frame al cual agregarle el vector generado al partir lineup
+flatten_grupos_replicados <- data.frame(matrix(unlist(grupos_replicados), nrow=length(split_lineup), byrow=TRUE))
+colnames(flatten_grupos_replicados) <- colnames(grupos)
+
+## Se agrega la columna grupo para alojar el vector partido lineup
+flatten_grupos_replicados$grupo <- split_lineup
 
 
 ## brolin?
 is.na(grupos[,columnas_plantilla]) ## Buscar el documento de tantas realidades ¿cómo pasar de índices en una dimensión a filas y columnas?
 
 ## Luego se corre el for de la línea 66 para crear los archivos. TODO: encontrar la manera de integrar dos geojson para los casos en que el grupo ya exista.
+
