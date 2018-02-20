@@ -87,9 +87,9 @@ require(dplyr)
 require(googlesheets)
 
 gs_auth()
-gs_ls("Apariciones (en bloque)")
-hoja_grupos <- gs_title("Apariciones (en bloque)")
-grupos <- hoja_grupos %>% gs_read(ws = "Para ingresar (Elvis)")
+gs_ls("apariciones")
+hoja_grupos <- gs_title("apariciones")
+grupos <- hoja_grupos %>% gs_read(ws = "krakenvivi")
 
 columnas_plantilla <- colnames(grupos)
 
@@ -121,6 +121,7 @@ plantilla <-  '{
 for (i in columnas_plantilla) {
   print(i)
   ifelse(i == "coordinates",  plantilla <- str_replace(plantilla,paste0("_",i),eval(parse(text = paste0("grupos$",i)))),   plantilla <- str_replace(plantilla,paste0("_",i),paste0("\"",eval(parse(text = paste0("grupos$",i))),"\"")))
+  
 }
 
 plantilla <- data.frame(plantilla, grupos$headliner)
@@ -190,6 +191,41 @@ flatten_grupos_replicados$grupo <- split_lineup
 
 ## brolin?
 is.na(grupos[,columnas_plantilla]) ## Buscar el documento de tantas realidades ¿cómo pasar de índices en una dimensión a filas y columnas?
+
+
+
+######################
+################### intento extraer los grupos del campo lineup
+row <- c(grupos)
+lineups <- grupos$lineup 
+## 
+s <-  c(lineups[69])
+split1 <- c(strsplit(lineups,","))
+ed <- c(split)
+
+
+## aquí vamos 
+lapply(seq_along(split1), function(x){rbind(split1[[x]])})
+
+## un lapply recorre todo split, otro anidado recorre cada split
+row1 <- lapply(split1, function(x){
+  paste0(x, " foo")
+})
+
+ lapply(row1, function(x){paste0(row1[[1]], toupper(x))})
+
+## pueden ser dos lapply separados 
+
+paste0(split, "xx")
+## intento split 
+dan <- split(grupos, grupos$lineup)
+
+## test
+corpus <- list("a","b","c",list("foo","bar","pande", "hum"))
+
+lapply(corpus, function(x){
+  
+})
 
 ## Luego se corre el for de la línea 66 para crear los archivos. TODO: encontrar la manera de integrar dos geojson para los casos en que el grupo ya exista.
 
