@@ -1,0 +1,25 @@
+#+TITLE:      Apariciones Abiertas
+#+AUTHOR:     daquina
+#+EMAIL:      fede2001@gmail.com
+#+INFOJS_OPT: view:t toc:t ltoc:t mouse:underline buttons:0 path:http://thomasf.github.io/solarized-css/org-info.min.js
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://thomasf.github.io/solarized-css/solarized-dark.min.css" />
+#+OPTIONS:    H:3 num:nil toc:t \n:nil ::t |:t ^:t -:t f:t *:t tex:t d:(HIDE) tags:not-in-toc
+#+STARTUP:    align fold nodlcheck hidestars oddeven lognotestate
+#+SEQ_TODO:   TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
+#+LANGUAGE:   en
+#+PRIORITIES: A C B
+#+CATEGORY:   communication
+#+CONSTANTS: pi=3.14159265358979323846
+#+STYLE: <link rel="stylesheet" type="text/css" href="slides.css" />
+
+* Contenido
+** Especies en via de extinción
+** Especificaciones  https://github.com/daquina-io/especificaciones/blob/master/especificaciones.md
+* Detonantes
+** Amor y odio por el PDF (y por excell) Arggggg!  q"$#&"$%& WORD!!
+* Herramientas
+** GeoJson
+** GitLab - GitHub
+** Pastebin
+* Anécdotas
+** Parabellum
