@@ -14,7 +14,7 @@
 
 * Contenido
 ** Especies en via de extinción
-** Especificaciones
+** Especificaciones  https://github.com/daquina-io/especificaciones/blob/master/especificaciones.md
 * Detonantes
 ** Amor y odio por el PDF (y por excell) Arggggg!  q"$#&"$%& WORD!!
 * Herramientas
