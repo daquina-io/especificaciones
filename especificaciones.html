@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-02-20 Tue 15:54 -->
+<!-- 2018-02-20 Tue 15:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Apariciones Abiertas</title>
+<title>Apariciones Abiertas (Especificaciones)</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="daquina" />
 <style type="text/css">
@@ -301,79 +301,167 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Apariciones Abiertas</h1>
+<h1 class="title">Apariciones Abiertas (Especificaciones)</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgaea5ddc">Contenido</a>
+<li><a href="#org6ef8808">Especificaciones del Sistema Abierto de Apariciones en el Territorio (Apariciones Abiertas) v.01</a></li>
+<li><a href="#orgc2830bd">Introducción</a></li>
+<li><a href="#orgae83101">Sección 1</a>
 <ul>
-<li><a href="#org21ac0cb">Especies en via de extinción</a></li>
-<li><a href="#org7dd910e">Especificaciones   ../especificaciones.html</a></li>
-</ul>
-</li>
-<li><a href="#orgdda5528">Detonantes</a>
+<li><a href="#orgf80e048">Acerca de AparicionesAbiertas</a></li>
+<li><a href="#org846e624">Las metas de AparicionesAbiertas</a>
 <ul>
-<li><a href="#org6ab86af">Amor y odio por el PDF (y por excell) Arggggg!  q"$#&amp;"$%&amp; WORD!!</a></li>
-</ul>
-</li>
-<li><a href="#org33c4449">Herramientas</a>
-<ul>
-<li><a href="#orge22bfc2">GeoJson</a></li>
-<li><a href="#orgc869022">GitLab - GitHub</a></li>
-<li><a href="#org6649287">Pastebin</a></li>
-</ul>
-</li>
-<li><a href="#orgb20443e">Anécdotas</a>
-<ul>
-<li><a href="#orgd08ad87">Parabellum</a></li>
+<li><a href="#orgf866c61">Facilitar el acceso ciudadano a datos del sector cultural.</a></li>
+<li><a href="#org8326050">Impulsar y apoyar el continuo desarrollo de capacidades técnicas que apunten a construir hábitos de datos abiertos que han traído tantos beneficios a nuestra comunidad.</a></li>
+<li><a href="#org9c75d1a">Aportar herramientas para facilitar la publicación de investigaciones reproducibles y verificables en el sector cultural.</a></li>
+<li><a href="#org92a0574">Apoyar la mision de </a></li>
+<li><a href="#orgb53f1ae">Habilitar a terceros toda clase de acceso y uso de información precisa para crear aplicaciones que sirvan al interés público, y promuevan</a></li>
+<li><a href="#orgbfdbecb">Proveer una alternativa de análisis a las estadísticas de popularidad en las redes sociales.</a></li>
+<li><a href="#orgadca4c8">Ayudar a mejorar las decisiones de los agentes culturales.</a></li>
+<li><a href="#orgc4e1755">Mirada inical a las especificaciones</a></li>
+<li><a href="#orgac72f59">Ejemplo:</a></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at <a href="http://mozilla.org/MPL/2.0/">http://mozilla.org/MPL/2.0/</a>.
+</p>
+
+
+<div id="outline-container-org6ef8808" class="outline-2">
+<h2 id="org6ef8808">Especificaciones del Sistema Abierto de Apariciones en el Territorio (Apariciones Abiertas) v.01</h2>
+<div class="outline-text-2" id="text-org6ef8808">
+<p>
+copiado y adaptado de <a href="https://docs.google.com/document/d/1KF8KAio-SqGHhh9oFY_KjfwIi3PePOHg7KfTSPh27fc/edit">https://docs.google.com/document/d/1KF8KAio-SqGHhh9oFY_KjfwIi3PePOHg7KfTSPh27fc/edit</a>
+</p>
 </div>
 </div>
 
-<div id="outline-container-orgaea5ddc" class="outline-2">
-<h2 id="orgaea5ddc">Contenido</h2>
-<div class="outline-text-2" id="text-orgaea5ddc">
-</div><div id="outline-container-org21ac0cb" class="outline-3">
-<h3 id="org21ac0cb">Especies en via de extinción</h3>
+<div id="outline-container-orgc2830bd" class="outline-2">
+<h2 id="orgc2830bd">Introducción</h2>
+<div class="outline-text-2" id="text-orgc2830bd">
+<p>
+Las especificaciones del Sistema Abierto de Apariciones en el Territorio entrega una manera uniforme como “formato de intercambio” para publicar datos consumibles por máquinas que cubra el alcance, atributos y sea usado por el sector cultural.
+Para los propósitos de estas especificaciones, “apariciones” se definen como un acto público verificable donde se exhibe una propuesta cultural.
+</p>
+
+<p>
+Todas las entidades que acogen actos culturales, así como entidades que consumen o distribuyen información de actos culturales están invitadas a publicar los aspectos públicos de sus datos en este formato.
+</p>
+
+<p>
+El principal caso de uso de Apariciones Abiertas es proveer estadísticas del sector para la construcción de estrategias que permitan la supervivencia de los proyectos culturales.
+</p>
+
+<p>
+Agrupaciones, managers, estrategas, funcionarios públicos, investigadores, se enfrentan a la dificultad de obtener y usar los datos de las apariciones en el territorio de proyectos culturales.
+</p>
+
+<p>
+Un creciente número de aplicaciones de software, API’s podrían consumir datos publicados en el formato AparicionesAbiertas, sirviendo tanto a visitantes, como agencias y organizaciones aliadas.
+</p>
+
+<p>
+El desarrollo de AparicionesAbiertas hasta el momento ha sido financiado por Dáquina, En Escena con contribuciones de datos de Casa Teatro, Casa de las estrategias, Medellín vive la Música y diversas agrupaciones culturales.
+</p>
 </div>
-<div id="outline-container-org7dd910e" class="outline-3">
-<h3 id="org7dd910e">Especificaciones   <a href="../especificaciones.html">../especificaciones.html</a></h3>
+</div>
+
+<div id="outline-container-orgae83101" class="outline-2">
+<h2 id="orgae83101">Sección 1</h2>
+<div class="outline-text-2" id="text-orgae83101">
+</div><div id="outline-container-orgf80e048" class="outline-3">
+<h3 id="orgf80e048">Acerca de AparicionesAbiertas</h3>
+</div>
+<div id="outline-container-org846e624" class="outline-3">
+<h3 id="org846e624">Las metas de AparicionesAbiertas</h3>
+<div class="outline-text-3" id="text-org846e624">
+<p>
+El desarrollo, promoción y adopción de esta especificación esta orientada a buscar unas metas específicas trazadas por investigadores del sector cultural, entidades gubernamentales, managers, estrategas, asi como individuos del sector cultural.
+</p>
+</div>
+<div id="outline-container-orgf866c61" class="outline-4">
+<h4 id="orgf866c61">Facilitar el acceso ciudadano a datos del sector cultural.</h4>
+</div>
+<div id="outline-container-org8326050" class="outline-4">
+<h4 id="org8326050">Impulsar y apoyar el continuo desarrollo de capacidades técnicas que apunten a construir hábitos de datos abiertos que han traído tantos beneficios a nuestra comunidad.</h4>
+</div>
+<div id="outline-container-org9c75d1a" class="outline-4">
+<h4 id="org9c75d1a">Aportar herramientas para facilitar la publicación de investigaciones reproducibles y verificables en el sector cultural.</h4>
+</div>
+<div id="outline-container-org92a0574" class="outline-4">
+<h4 id="org92a0574">Apoyar la mision de <a href="http://datosabiertoscolombia.cloudapp.net/">http://datosabiertoscolombia.cloudapp.net/</a></h4>
+</div>
+<div id="outline-container-orgb53f1ae" class="outline-4">
+<h4 id="orgb53f1ae">Habilitar a terceros toda clase de acceso y uso de información precisa para crear aplicaciones que sirvan al interés público, y promuevan</h4>
+</div>
+<div id="outline-container-orgbfdbecb" class="outline-4">
+<h4 id="orgbfdbecb">Proveer una alternativa de análisis a las estadísticas de popularidad en las redes sociales.</h4>
+</div>
+<div id="outline-container-orgadca4c8" class="outline-4">
+<h4 id="orgadca4c8">Ayudar a mejorar las decisiones de los agentes culturales.</h4>
+</div>
+<div id="outline-container-orgc4e1755" class="outline-4">
+<h4 id="orgc4e1755">Mirada inical a las especificaciones</h4>
+<div class="outline-text-4" id="text-orgc4e1755">
+<p>
+Para el propósito de esta especificación "Aparicion" es definida como un acto público de una propuesta cultural, "AparicionesAbiertas" entrega datos relacionados con el territorio, capacidad de asistentes, fecha etc.
+</p>
+</div>
+
+<ul class="org-ul"><li><a id="org05deae4"></a><b><b><b>date</b></b></b> ```Requerido``` Usamos el formato AAAA-MM-DD HH:MM:SS para contemplar la posibilidad en la que un proyecto cultural se presente mas de una vez en el mismo día.<br /></li>
+<li><a id="orga6d615c"></a><b><b><b>venue</b></b></b> ```Requerido``` Usamos el nombre del sitio del evento, la combinación de ese nombre con la ciudad nos debe permitir identificar el sitio de la presentación.<br /></li>
+<li><a id="orgf431aab"></a><b><b><b>event</b></b></b> ```Opcional``` El nombre del evento, o la ocasión que motiva el evento.<br /></li>
+<li><a id="org8e9250e"></a><b><b><b>event<sub>genres</sub></b></b></b> ```Opcional``` Los generos musicales que se escucharon en el evento, separados por comas, en minusculas, palabras separadas por guión bajo.<br /></li>
+<li><a id="org6f51866"></a><b><b><b>capacity</b></b></b> ```Opcional``` Se describe como la cantidad de personas que caben en el sitio del evento (venue), se debe esribir como un número entero.<br /></li>
+<li><a id="orge2983db"></a><b><b><b>occupation</b></b></b> ```Opcional``` Este valor se pone en la forma de un numero entero que representa un porcentaje, no puede ser mayor a cien, tampoco negativo, 100 quiere decir que el sitio estaba lleno, 90 casi lleno, 50 a la mitad, 10 muy poca gente.<br /></li>
+<li><a id="org2b74ba6"></a><b><b><b>city</b></b></b> ```Requerido```<br /></li>
+<li><a id="org1f23775"></a><b><b><b>coordinates</b></b></b> ```Requerido``` Hacen parte de la localización en el territorio que hace geoJson.<br /></li></ul>
+</div>
+<div id="outline-container-orgac72f59" class="outline-4">
+<h4 id="orgac72f59">Ejemplo:</h4>
+<div class="outline-text-4" id="text-orgac72f59">
+<div class="org-src-container">
+<pre class="src src-json"><span style="color: #8c8c8c;">{</span>
+  <span style="color: #b4fa70;">"type"</span>: <span style="color: #e9b96e;">"Feature"</span>,
+  <span style="color: #b4fa70;">"properties"</span>:
+  <span style="color: #93a8c6;">{</span>
+    <span style="color: #b4fa70;">"venue"</span>: <span style="color: #e9b96e;">""</span>,
+    <span style="color: #b4fa70;">"event"</span>: <span style="color: #e9b96e;">""</span>,
+    <span style="color: #b4fa70;">"date"</span>: <span style="color: #e9b96e;">""</span>,
+    <span style="color: #b4fa70;">"capacity"</span>: <span style="color: #e9b2e3;">0</span>,
+    <span style="color: #b4fa70;">"occupation"</span>: <span style="color: #e9b2e3;">0</span>,
+    <span style="color: #b4fa70;">"event_genres"</span>:<span style="color: #e9b96e;">""</span>,
+    <span style="color: #b4fa70;">"lineup"</span>:<span style="color: #e9b96e;">""</span>,
+    <span style="color: #b4fa70;">"headliner"</span>: <span style="color: #e9b96e;">""</span>,
+    <span style="color: #b4fa70;">"city"</span>: <span style="color: #e9b96e;">""</span>
+  <span style="color: #93a8c6;">}</span>,
+  <span style="color: #b4fa70;">"geometry"</span>: <span style="color: #93a8c6;">{</span>
+    <span style="color: #b4fa70;">"type"</span>: <span style="color: #e9b96e;">"Point"</span>,
+    <span style="color: #b4fa70;">"coordinates"</span>: <span style="color: #b0b1a3;">[</span>
+        -<span style="color: #e9b2e3;">74</span>.<span style="color: #e9b2e3;">09070253372192</span>,
+      <span style="color: #e9b2e3;">4</span>.<span style="color: #e9b2e3;">660346097326611</span>
+    <span style="color: #b0b1a3;">]</span>
+  <span style="color: #93a8c6;">}</span>
+<span style="color: #8c8c8c;">}</span>
+</pre>
 </div>
 </div>
-<div id="outline-container-orgdda5528" class="outline-2">
-<h2 id="orgdda5528">Detonantes</h2>
-<div class="outline-text-2" id="text-orgdda5528">
-</div><div id="outline-container-org6ab86af" class="outline-3">
-<h3 id="org6ab86af">Amor y odio por el PDF (y por excell) Arggggg!  q"$#&amp;"$%&amp; WORD!!</h3>
 </div>
-</div>
-<div id="outline-container-org33c4449" class="outline-2">
-<h2 id="org33c4449">Herramientas</h2>
-<div class="outline-text-2" id="text-org33c4449">
-</div><div id="outline-container-orge22bfc2" class="outline-3">
-<h3 id="orge22bfc2">GeoJson</h3>
-</div>
-<div id="outline-container-orgc869022" class="outline-3">
-<h3 id="orgc869022">GitLab - GitHub</h3>
-</div>
-<div id="outline-container-org6649287" class="outline-3">
-<h3 id="org6649287">Pastebin</h3>
-</div>
-</div>
-<div id="outline-container-orgb20443e" class="outline-2">
-<h2 id="orgb20443e">Anécdotas</h2>
-<div class="outline-text-2" id="text-orgb20443e">
-</div><div id="outline-container-orgd08ad87" class="outline-3">
-<h3 id="orgd08ad87">Parabellum</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: daquina</p>
-<p class="date">Created: 2018-02-20 Tue 15:54</p>
+<p class="date">Created: 2018-02-20 Tue 15:40</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
