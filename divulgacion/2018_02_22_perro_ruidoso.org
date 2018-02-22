@@ -1,5 +1,5 @@
 #+TITLE:      Apariciones Abiertas
-#+AUTHOR:     daquina
+#+AUTHOR:     daquina.io
 #+EMAIL:      fede2001@gmail.com
 #+INFOJS_OPT: view:t toc:t ltoc:t mouse:underline buttons:0 path:http://thomasf.github.io/solarized-css/org-info.min.js
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://thomasf.github.io/solarized-css/solarized-dark.min.css" />
@@ -13,13 +13,29 @@
 #+STYLE: <link rel="stylesheet" type="text/css" href="slides.css" />
 
 * Contenido
-** Especies en via de extinción
-** Especificaciones   [[../especificaciones.org][../especificaciones.html]]
+
+** Problema: Contruye una estrategia basada en intenciones 
+
+*** Optimización: Observa el echo cumplido
+    Supone una mandada en vía de extinción, ¿Cómo registra su impacto?
+
+**** ¿Cuando?, ¿Cual?, ¿Donde? #aparicionesAbiertas
+
+*** Optimización: Formatos amigables con las máquinas, .txt, .csv, geoJson.
+**** Especificaciones   [[../especificaciones.org][../especificaciones.html]]
+**** Scrapers
+*** Optimización: Rastros, Relaciones, Olvido.
+
+*** Optomización: Inmutabilidad, consenso, adquisición y transmisión de valor
 * Detonantes
 ** Amor y odio por el PDF (y por excell) Arggggg!  q"$#&"$%& WORD!!
 * Herramientas
-** GeoJson
+** [[https://github.com/daquina-io/apariciones][Repositorio Apariciones]] 
+** [[https://github.com/daquina-io/especificaciones/blob/master/especificaciones.md][Especificaciones]] 
+** [[http://www.daquina.io/visualizacion_apariciones_proyectos_musicales/][Mapa Apariciones]]
+**  [[http://geojson.io/][GeoJson]]
 ** GitLab - GitHub
 ** Pastebin
 * Anécdotas
-** Parabellum
+** Parabellum apareció muy pocas veces en el territorio pero mantiene alto impacto (culto)
+** Un grupo de covers aparece jueves, viernes y sábado en un bar, pero tiene bajo impacto.
